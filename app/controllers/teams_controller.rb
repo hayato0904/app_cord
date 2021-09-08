@@ -19,6 +19,7 @@ class TeamsController < ApplicationController
     unless current_user.isOwner?(@team)
       reditect_to team_path
     end
+    reditect_to team_path unless current_user.isOwner?(@team)
   end
 # 追記
   def create
