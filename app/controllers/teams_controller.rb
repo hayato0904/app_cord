@@ -14,9 +14,14 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
   end
-
-  def edit; end
-
+# 追記
+  def edit
+    unless current_user.isOwner?(@team)
+      redirect_to team_path
+    end
+    reditect_to team_path unless current_user.isOwner?(@team)
+  end
+# 追記
   def create
     @team = Team.new(team_params)
     @team.owner = current_user
