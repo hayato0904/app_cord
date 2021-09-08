@@ -17,9 +17,8 @@ class TeamsController < ApplicationController
 # 追記
   def edit
     unless current_user.isOwner?(@team)
-      redirect_to team_path
     end
-    reditect_to team_path unless current_user.isOwner?(@team)
+    redirect_to team_path unless current_user.isOwner?(@team)
   end
 # 追記
   def create
